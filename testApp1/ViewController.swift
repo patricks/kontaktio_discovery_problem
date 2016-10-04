@@ -12,10 +12,10 @@ import KontaktSDK
 class ViewController: UIViewController {
     
     private var deviceManager: KTKDevicesManager?
-    //private var deviceManager: KTKDevicesManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         deviceManager = KTKDevicesManager(delegate: self)
     }
     
@@ -35,28 +35,26 @@ class ViewController: UIViewController {
     }
     
     private func startDiscovery() {
-        /*
-        if deviceManager.discovering {
+        guard let manager = deviceManager else {
+            print("Device manager is nil")
+            return
+        }
+
+        if manager.discovering {
             print("Already discovering...")
             return
         }
         
-        deviceManager.startDevicesDiscoveryWithInterval(2)
-        */
-        
-        if let manager = deviceManager {
-            if manager.discovering {
-                print("Already discovering...")
-                return
-            }
-        }
-         
-         deviceManager?.startDevicesDiscoveryWithInterval(2)
+         manager.startDevicesDiscoveryWithInterval(2)
     }
     
     private func stopDiscovery() {
-        //deviceManager.stopDevicesDiscovery()
-        deviceManager?.stopDevicesDiscovery()
+        guard let manager = deviceManager else {
+            print("Device manager is nil")
+            return
+        }
+        
+        manager.stopDevicesDiscovery()
     }
 }
 
