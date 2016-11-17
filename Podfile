@@ -6,6 +6,6 @@ target 'testApp1' do
   use_frameworks!
 
   # Pods for testApp1
-  pod 'KontaktSDK', '~> 1.1'
+  pod 'KontaktSDK', '~> 1.3.2'
 
 end

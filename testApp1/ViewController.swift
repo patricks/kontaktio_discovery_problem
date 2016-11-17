@@ -45,7 +45,8 @@ class ViewController: UIViewController {
             return
         }
         
-         manager.startDevicesDiscoveryWithInterval(2)
+        print("Start discovering...")
+        manager.startDevicesDiscoveryWithInterval(2)
     }
     
     private func stopDiscovery() {
@@ -54,6 +55,7 @@ class ViewController: UIViewController {
             return
         }
         
+        print("Stop discovering...")
         manager.stopDevicesDiscovery()
     }
 }
